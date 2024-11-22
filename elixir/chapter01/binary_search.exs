@@ -1,8 +1,10 @@
 defmodule Binary do
+  @spec search(integer, list) :: {:ok, integer} | {:error, String.t()}
   def search(value, list) do
     search(value, list, 0, length(list) - 1)
   end
 
+  @spec search(integer, list, integer, integer) :: {:ok, integer} | {:error, String.t()}
   def search(value, list, low, high) do
     if low > high do
       {:error, "Value not found"}
@@ -20,4 +22,5 @@ defmodule Binary do
 end
 
 # Test
+IO.inspect(Binary.search(5, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 IO.inspect(Binary.search(50, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
